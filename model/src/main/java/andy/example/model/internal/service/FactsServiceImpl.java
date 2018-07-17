@@ -24,10 +24,9 @@ public class FactsServiceImpl extends BaseService<FactsResponse> implements Fact
    * Method to retrieve facts.
    *
    * @param factsServiceCallback - callback handler for passing appropriate response
-   * @param conversationId       - unique server interaction id
    */
   @Override
-  public void getFacts(FactsServiceCallback factsServiceCallback, String conversationId) {
+  public void getFacts(FactsServiceCallback factsServiceCallback) {
     this.factsServiceCallback = factsServiceCallback;
     request(UUID.randomUUID().toString());
   }
