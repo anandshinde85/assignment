@@ -1,27 +1,51 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    
-    repositories {
-        google()
-        jcenter()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:3.3.0-alpha03'
-        
 
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
-    }
+  repositories {
+    google()
+    jcenter()
+  }
+  dependencies {
+    classpath 'com.android.tools.build:gradle:3.3.0-alpha03'
+
+    // NOTE: Do not place your application dependencies here; they belong
+    // in the individual module build.gradle files
+  }
 }
 
 allprojects {
-    repositories {
-        google()
-        jcenter()
-    }
+  repositories {
+    google()
+    jcenter()
+  }
+}
+
+ext {
+
+  //Version
+  supportLibrary = '27.1.1'
+  retrofit = '2.4.0'
+  okHttp = '3.11.0'
+  jUnit = '4.12'
+  testRunner = '1.0.2'
+  espresso = '3.0.2'
+  constraintLayout = '1.1.2'
+
+  //Support Libraries dependencies
+  supportDependencies = [
+      appCompat       : "com.android.support:appcompat-v7:${supportLibrary}",
+      design          : "com.android.support:design:${supportLibrary}",
+      retrofit        : "com.squareup.retrofit2:retrofit:${retrofit}",
+      okHttp          : "com.squareup.okhttp3:logging-interceptor:${okHttp}",
+      gson            : "com.squareup.retrofit2:converter-gson:${retrofit}",
+      jUnit           : "junit:junit:${jUnit}",
+      testRunner      : "com.android.support.test:runner:${testRunner}",
+      espresso        : "com.android.support.test.espresso:espresso-core:${espresso}",
+      constraintLayout: "com.android.support.constraint:constraint-layout:${constraintLayout}"
+  ]
 }
 
 task clean(type: Delete) {
-    delete rootProject.buildDir
+  delete rootProject.buildDir
 }
