@@ -20,6 +20,8 @@ android {
 
 dependencies {
   implementation fileTree(include: ['*.jar'], dir: 'libs')
+  implementation project(':commons')
+  implementation project(':model')
   implementation project(':presenter')
   implementation supportDependencies.appCompat
   implementation supportDependencies.constraintLayout
