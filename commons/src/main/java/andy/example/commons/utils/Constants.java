@@ -10,5 +10,5 @@ public class Constants {
     // private constructor to avoid creating object of this class
   }
 
-  public static final String BASE_URL = "https://dl.dropboxusercontent.com";
+  public static final String BASE_URL = "https://dl.dropboxusercontent.com/";
 }
