@@ -12,7 +12,6 @@ public interface FactsService {
    * Method to retrieve facts.
    *
    * @param factsServiceCallback - callback handler for passing appropriate response
-   * @param conversationId       - unique server interaction id
    */
-  void getFacts(FactsServiceCallback factsServiceCallback, String conversationId);
+  void getFacts(FactsServiceCallback factsServiceCallback);
 }
