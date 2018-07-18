@@ -16,12 +16,14 @@ public class FactsViewHolder extends RecyclerView.ViewHolder {
   private TextView tvTitle;
   private TextView tvDescription;
   private ImageView ivFact;
+  private ImageView ivArrow;
 
   public FactsViewHolder(View itemView) {
     super(itemView);
     tvTitle = itemView.findViewById(R.id.tv_fact_title);
     tvDescription = itemView.findViewById(R.id.tv_fact_description);
     ivFact = itemView.findViewById(R.id.iv_fact_icon);
+    ivArrow = itemView.findViewById(R.id.iv_arrow);
   }
 
   public TextView getTvTitle() {
@@ -46,5 +48,13 @@ public class FactsViewHolder extends RecyclerView.ViewHolder {
 
   public void setIvFact(ImageView ivFact) {
     this.ivFact = ivFact;
+  }
+
+  public ImageView getIvArrow() {
+    return ivArrow;
+  }
+
+  public void setIvArrow(ImageView ivArrow) {
+    this.ivArrow = ivArrow;
   }
 }
