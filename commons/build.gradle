@@ -27,6 +27,7 @@ android {
 dependencies {
   implementation fileTree(include: ['*.jar'], dir: 'libs')
   implementation supportDependencies.appCompat
+  implementation supportDependencies.design
   implementation supportDependencies.retrofit
   implementation supportDependencies.okHttp
   implementation supportDependencies.gson
