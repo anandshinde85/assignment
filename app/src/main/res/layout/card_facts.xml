@@ -3,7 +3,7 @@
                                     xmlns:app="http://schemas.android.com/apk/res-auto"
                                     xmlns:tools="http://schemas.android.com/tools"
                                     android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
+                                    android:layout_height="wrap_content"
                                     android:layout_margin="@dimen/standard_margin">
 
     <android.support.constraint.ConstraintLayout
@@ -32,19 +32,21 @@
 
         <ImageView
             android:id="@+id/iv_fact_icon"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/facts_image_width"
+            android:layout_height="@dimen/facts_image_height"
+            android:scaleType="fitXY"
             app:layout_constraintRight_toLeftOf="@id/iv_arrow"
             app:layout_constraintTop_toBottomOf="@id/tv_fact_title"
             tools:src="@drawable/ic_place_holder"/>
 
         <TextView
             android:id="@+id/tv_fact_description"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textColor="@color/facts_description_color"
             android:textSize="@dimen/facts_description_size"
             app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/iv_fact_icon"
             app:layout_constraintTop_toBottomOf="@id/tv_fact_title"
             tools:text="Facts Description"/>
     </android.support.constraint.ConstraintLayout>
