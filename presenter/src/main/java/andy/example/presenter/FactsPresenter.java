@@ -78,7 +78,12 @@ public class FactsPresenter implements BasePresenter, FactsContract.UserActionLi
   @Override
   public void fetchFacts() {
     if (null != factsView) {
-      factsView.showLoading(true);
+      if (factsView.isConnectedToNetwork()) {
+        factsView.showLoading(true);
+      } else {
+        factsView.showNetworkUnavailableError();
+        return;
+      }
     }
     factsService.getFacts(this);
   }
