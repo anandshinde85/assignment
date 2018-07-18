@@ -24,5 +24,8 @@ dependencies {
   implementation project(':model')
   implementation project(':presenter')
   implementation supportDependencies.appCompat
+  implementation supportDependencies.support
+  implementation supportDependencies.recyclerView
+  implementation supportDependencies.cardView
   implementation supportDependencies.constraintLayout
 }
