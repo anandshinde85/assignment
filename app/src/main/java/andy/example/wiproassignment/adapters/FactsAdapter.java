@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 import andy.example.commons.utils.CollectionUtil;
@@ -22,7 +24,7 @@ import andy.example.wiproassignment.viewholders.FactsViewHolder;
  */
 public class FactsAdapter extends RecyclerView.Adapter<FactsViewHolder> {
   private final Context context;
-  private final List<Row> rowList;
+  private List<Row> rowList;
 
   public FactsAdapter(Context context, List<Row> rowList) {
     this.context = context;
@@ -43,7 +45,9 @@ public class FactsAdapter extends RecyclerView.Adapter<FactsViewHolder> {
     if (null == row) {
       holder.getTvTitle().setText(context.getString(R.string.unavailable));
       holder.getTvDescription().setText(context.getString(R.string.unavailable));
-      holder.getIvFact().setImageResource(R.drawable.ic_place_holder);
+      Picasso.with(context)
+          .load(R.drawable.ic_place_holder)
+          .into(holder.getIvFact());
     } else {
       String rowTitle = row.getTitle();
       String title =
@@ -56,14 +60,17 @@ public class FactsAdapter extends RecyclerView.Adapter<FactsViewHolder> {
               rowDescription;
       holder.getTvDescription().setText(description);
 
-      // Code to load image using picasso goes here
       String imageLink = row.getImageHref();
-      if (TextUtils.isEmpty(imageLink)) {
-        // Keeping blank
-      } else {
-        holder.getIvFact().setImageResource(R.drawable.ic_place_holder);
-      }
+      Picasso.with(context)
+          .load(imageLink)
+          .placeholder(R.drawable.ic_place_holder)
+          .error(R.drawable.ic_place_holder)
+          .into(holder.getIvFact());
     }
+    Picasso.with(context)
+        .load(R.drawable.ic_arrow_right)
+        .placeholder(R.drawable.ic_arrow_right)
+        .into(holder.getIvArrow());
   }
 
   /**
@@ -74,5 +81,15 @@ public class FactsAdapter extends RecyclerView.Adapter<FactsViewHolder> {
   @Override
   public int getItemCount() {
     return CollectionUtil.isNotEmpty(rowList) ? rowList.size() : 0;
+  }
+
+  /**
+   * Method to update data set
+   *
+   * @param rowList - row list
+   */
+  public void updateDataSet(List<Row> rowList) {
+    this.rowList = rowList;
+    notifyDataSetChanged();
   }
 }
