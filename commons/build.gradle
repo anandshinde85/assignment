@@ -29,7 +29,7 @@ dependencies {
   implementation supportDependencies.appCompat
   implementation supportDependencies.design
   implementation supportDependencies.retrofit
-  implementation supportDependencies.okHttp
+  implementation supportDependencies.okHttpLogger
   implementation supportDependencies.gson
 
   testImplementation supportDependencies.jUnit
