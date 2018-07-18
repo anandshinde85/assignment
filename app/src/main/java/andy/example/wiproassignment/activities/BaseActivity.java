@@ -120,7 +120,7 @@ public class BaseActivity extends AppCompatActivity implements BaseMVPView {
     if (isFinishing() || isDestroyed()) {
       return;
     }
-    String title = getString(R.string.no_network_msg);
+    String title = getString(R.string.no_network_title);
     String msg = getString(R.string.no_network_msg);
     new AlertUtil().showAlertDialog(this, title, msg);
   }
