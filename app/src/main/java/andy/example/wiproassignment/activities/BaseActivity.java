@@ -1,6 +1,8 @@
 package andy.example.wiproassignment.activities;
 
 import android.content.Context;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import andy.example.mvpviews.BaseMVPView;
@@ -11,6 +13,19 @@ import andy.example.mvpviews.BaseMVPView;
  * @author Anand Shinde
  */
 public class BaseActivity extends AppCompatActivity implements BaseMVPView {
+
+  @Override
+  protected void onCreate(@Nullable Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    // Common setup code goes here.
+  }
+
+  @Override
+  protected void onDestroy() {
+    // Common code to release resources goes here
+    super.onDestroy();
+  }
+
   /**
    * Returns Context of holding view
    *
