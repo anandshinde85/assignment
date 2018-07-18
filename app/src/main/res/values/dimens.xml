@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="standard_margin">8dp</dimen>
-    <dimen name="facts_title_size">16sp</dimen>
+    <dimen name="facts_title_size">18sp</dimen>
     <dimen name="facts_description_size">14sp</dimen>
     <dimen name="facts_image_width">84dp</dimen>
     <dimen name="facts_image_height">70dp</dimen>

@@ -18,6 +18,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/facts_title_color"
             android:textSize="@dimen/facts_title_size"
+            android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Facts Title"/>
@@ -43,6 +44,7 @@
             android:id="@+id/tv_fact_description"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/standard_margin"
             android:textColor="@color/facts_description_color"
             android:textSize="@dimen/facts_description_size"
             app:layout_constraintLeft_toLeftOf="parent"
