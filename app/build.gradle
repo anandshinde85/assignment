@@ -28,4 +28,7 @@ dependencies {
   implementation supportDependencies.recyclerView
   implementation supportDependencies.cardView
   implementation supportDependencies.constraintLayout
+  implementation supportDependencies.picasso
+  implementation supportDependencies.picassoDownloader
+  implementation supportDependencies.okHttpDownloader
 }
