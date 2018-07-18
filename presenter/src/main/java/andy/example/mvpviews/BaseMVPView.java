@@ -29,4 +29,16 @@ public interface BaseMVPView {
    * @param msg  - message to be displayed
    */
   void showLoading(boolean show, String msg);
+
+  /**
+   * Method to check if device is connected to network
+   *
+   * @return - true if network is connected otherwise returns false
+   */
+  boolean isConnectedToNetwork();
+
+  /**
+   * Method to display error UI when network is not available
+   */
+  void showNetworkUnavailableError();
 }
