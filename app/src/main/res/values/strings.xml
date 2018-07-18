@@ -9,4 +9,5 @@
     <string name="no_network_msg">Please enable internet and try again.</string>
     <string name="retry">Retry</string>
     <string name="empty_data">No facts available at this moment.</string>
+    <string name="unavailable">Unavailable</string>
 </resources>
