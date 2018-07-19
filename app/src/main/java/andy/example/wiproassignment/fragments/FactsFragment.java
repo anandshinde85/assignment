@@ -145,10 +145,16 @@ public class FactsFragment extends BaseFragment implements FactsContract.View, S
     if (!isAdded()) {
       return;
     }
-    if (show) {
+    if (show && swipeRefreshLayout.isRefreshing()) {
+      return;
+    } else if (show) {
       progressBar.setVisibility(View.VISIBLE);
     } else {
-      progressBar.setVisibility(View.GONE);
+      if (swipeRefreshLayout.isRefreshing()) {
+        return;
+      } else {
+        progressBar.setVisibility(View.GONE);
+      }
     }
   }
 
