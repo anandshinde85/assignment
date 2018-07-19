@@ -11,4 +11,4 @@ Third party Library Credits:
 - okhttp3:logging-interceptor:3.11.0  : Logging interceptor for network calls
 - picasso2-okhttp3-downloader:1.1.0   : Image caching and downloading
 - picasso:2.5.2                       : To load images
-- awaitility-3.1.1                    : For test casese
+- awaitility-3.1.1                    : For test cases
