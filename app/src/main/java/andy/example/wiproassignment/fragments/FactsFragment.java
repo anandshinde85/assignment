@@ -13,8 +13,11 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 import andy.example.commons.utils.AlertUtil;
 import andy.example.model.entities.FactsResponse;
+import andy.example.model.entities.Row;
 import andy.example.mvpviews.FactsContract;
 import andy.example.presenter.FactsPresenter;
 import andy.example.wiproassignment.R;
@@ -102,7 +105,10 @@ public class FactsFragment extends BaseFragment implements FactsContract.View, S
     progressBar = view.findViewById(R.id.progress_bar);
     swipeRefreshLayout = view.findViewById(R.id.swipe_refresh_layout);
 
+    factsAdapter = new FactsAdapter(getContext(), new ArrayList<Row>());
+
     rvFacts.setLayoutManager(new LinearLayoutManager(getContext()));
+    rvFacts.setAdapter(factsAdapter);
     swipeRefreshLayout.setOnRefreshListener(this);
   }
 
@@ -168,6 +174,7 @@ public class FactsFragment extends BaseFragment implements FactsContract.View, S
     }
 
     setRefreshing(false);
+    tvEmpty.setVisibility(View.VISIBLE);
 
     AlertUtil alertUtil = new AlertUtil();
     alertUtil.showIndefiniteSnackBar(getView(), getString(R.string.no_network_msg), getString(R
@@ -209,6 +216,7 @@ public class FactsFragment extends BaseFragment implements FactsContract.View, S
     if (!isAdded()) {
       return;
     }
+    tvEmpty.setVisibility(View.VISIBLE);
 
     AlertUtil alertUtil = new AlertUtil();
     alertUtil.showIndefiniteSnackBar(getView(), getString(R.string.error_msg), getString(R.string
