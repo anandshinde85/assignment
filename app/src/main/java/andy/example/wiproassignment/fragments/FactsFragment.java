@@ -112,6 +112,9 @@ public class FactsFragment extends BaseFragment implements FactsContract.View, S
    * @param refreshing - true to display refreshing otherwise false
    */
   private void setRefreshing(boolean refreshing) {
+    if (null == swipeRefreshLayout) {
+      return;
+    }
     if (refreshing) {
       swipeRefreshLayout.setRefreshing(refreshing);
       return;
@@ -151,7 +154,7 @@ public class FactsFragment extends BaseFragment implements FactsContract.View, S
       progressBar.setVisibility(View.VISIBLE);
     } else {
       if (swipeRefreshLayout.isRefreshing()) {
-        return;
+        setRefreshing(false);
       } else {
         progressBar.setVisibility(View.GONE);
       }
@@ -196,7 +199,6 @@ public class FactsFragment extends BaseFragment implements FactsContract.View, S
     tvEmpty.setVisibility(View.GONE);
 
     factsFragmentInteractionListener.updateToolbarTitle(factsResponse.getTitle());
-    setRefreshing(false);
   }
 
   /**
@@ -207,7 +209,6 @@ public class FactsFragment extends BaseFragment implements FactsContract.View, S
     if (!isAdded()) {
       return;
     }
-    setRefreshing(false);
 
     AlertUtil alertUtil = new AlertUtil();
     alertUtil.showIndefiniteSnackBar(getView(), getString(R.string.error_msg), getString(R.string
@@ -227,7 +228,6 @@ public class FactsFragment extends BaseFragment implements FactsContract.View, S
     if (!isAdded()) {
       return;
     }
-    setRefreshing(false);
     rvFacts.setVisibility(View.GONE);
     tvEmpty.setVisibility(View.VISIBLE);
   }
