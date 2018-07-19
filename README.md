@@ -1,7 +1,8 @@
 # assignment
 Assignment for Wipro.
 
-This POC is developed using "MVP" architecture. Application consumes REST service to displaying list of photos, title and description in application.
+This POC is developed using "MVP" architecture. Application consumes REST service to display list of
+ photos, title and description in application.
 
 Third party Library Credits:
 - retrofit:2.4.0                      : To handle network operations
