@@ -33,6 +33,7 @@ ext {
   constraintLayout = '1.1.2'
   picasso = '2.5.2'
   picassoDownloader = '1.1.0'
+  mockito = '2.20.1'
 
   //Support Libraries dependencies
   supportDependencies = [
@@ -53,8 +54,9 @@ ext {
 
       jUnit            : "junit:junit:${jUnit}",
       testRunner       : "com.android.support.test:runner:${testRunner}",
-      testRules       : "com.android.support.test:rules:${testRunner}",
-      espresso         : "com.android.support.test.espresso:espresso-core:${espresso}"
+      testRules        : "com.android.support.test:rules:${testRunner}",
+      espresso         : "com.android.support.test.espresso:espresso-core:${espresso}",
+      mockito          : "org.mockito:mockito-core:${mockito}"
   ]
 }
 
