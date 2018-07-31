@@ -74,6 +74,26 @@ public class FactsPresenterTest {
   }
 
   /**
+   * Test case to be ran successfully when API return facts with no data
+   */
+  @Test
+  public void testSucceedToFetchFactsWithNoData() {
+    // Facts response with title and rows == null
+    FactsResponse factsResponse = new FactsResponse();
+    String conversationId = "";
+
+    factsPresenter.fetchFacts();
+    Mockito.verify(factsView).showLoading(true);
+    Mockito.verify(factsService).getFacts(verifyCallback.capture());
+
+    // This will return facts response with rows == null
+    verifyCallback.getValue().onSuccess(factsResponse, conversationId);
+
+    // Verify since rows are null factsPresenter calls factsView's showEmptyError
+    Mockito.verify(factsView).showEmptyError();
+  }
+
+  /**
    * Method to generate and return facts
    *
    * @return - factsResponse
