@@ -64,13 +64,9 @@ public class FactsAdapter extends RecyclerView.Adapter<FactsViewHolder> {
       Picasso.with(context)
           .load(imageLink)
           .placeholder(R.drawable.ic_place_holder)
-          .error(R.drawable.ic_place_holder)
+          .error(R.drawable.ic_place_holder_error)
           .into(holder.getIvFact());
     }
-    Picasso.with(context)
-        .load(R.drawable.ic_arrow_right)
-        .placeholder(R.drawable.ic_arrow_right)
-        .into(holder.getIvArrow());
   }
 
   /**
