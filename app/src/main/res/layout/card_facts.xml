@@ -24,19 +24,11 @@
             tools:text="Facts Title"/>
 
         <ImageView
-            android:id="@+id/iv_arrow"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_fact_title"
-            tools:src="@drawable/ic_arrow_right"/>
-
-        <ImageView
             android:id="@+id/iv_fact_icon"
             android:layout_width="@dimen/facts_image_width"
             android:layout_height="@dimen/facts_image_height"
             android:scaleType="fitXY"
-            app:layout_constraintRight_toLeftOf="@id/iv_arrow"
+            app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_fact_title"
             tools:src="@drawable/ic_place_holder"/>
 
