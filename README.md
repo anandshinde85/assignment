@@ -12,3 +12,4 @@ Third party Library Credits:
 - picasso2-okhttp3-downloader:1.1.0   : Image caching and downloading
 - picasso:2.5.2                       : To load images
 - awaitility-3.1.1                    : For test cases
+- Mockito:Core-2.20.1                 : For test cases mocking data
