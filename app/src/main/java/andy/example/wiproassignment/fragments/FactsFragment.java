@@ -137,6 +137,10 @@ public class FactsFragment extends BaseFragment implements FactsContract.View, S
     if (null == factsActionListener) {
       factsActionListener = new FactsPresenter(this);
     }
+    if (!isConnectedToNetwork()) {
+      showNetworkUnavailableError();
+      return;
+    }
     factsActionListener.fetchFacts();
   }
 
