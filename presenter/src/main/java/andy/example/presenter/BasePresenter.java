@@ -6,13 +6,13 @@ package andy.example.presenter;
  * @author Anand Shinde
  */
 public interface BasePresenter {
-  /**
-   * To be called in onStart method of activity/fragment
-   */
-  void start();
+    /**
+     * To be called in onStart method of activity/fragment
+     */
+    void start();
 
-  /**
-   * To be called in onStop method of activity/fragment
-   */
-  void stop();
+    /**
+     * To be called in onStop method of activity/fragment
+     */
+    void stop();
 }

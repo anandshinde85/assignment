@@ -8,10 +8,10 @@ import andy.example.model.callbacks.FactsServiceCallback;
  * @author Anand Shinde
  */
 public interface FactsService {
-  /**
-   * Method to retrieve facts.
-   *
-   * @param factsServiceCallback - callback handler for passing appropriate response
-   */
-  void getFacts(FactsServiceCallback factsServiceCallback);
+    /**
+     * Method to retrieve facts.
+     *
+     * @param factsServiceCallback - callback handler for passing appropriate response
+     */
+    void getFacts(FactsServiceCallback factsServiceCallback);
 }

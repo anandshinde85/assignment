@@ -9,18 +9,18 @@ import andy.example.model.entities.FactsResponse;
  * @author Anand Shinde
  */
 public interface FactsServiceCallback {
-  /**
-   * Method to be called when response is success
-   *
-   * @param factsResponse  - instance holding facts
-   * @param conversationId - unique server interaction id
-   */
-  void onSuccess(FactsResponse factsResponse, String conversationId);
+    /**
+     * Method to be called when response is success
+     *
+     * @param factsResponse  - instance holding facts
+     * @param conversationId - unique server interaction id
+     */
+    void onSuccess(FactsResponse factsResponse, String conversationId);
 
-  /**
-   * Method to notify there was failure while retrieving facts
-   *
-   * @param conversationId - unique server interaction id
-   */
-  void onFailure(String conversationId);
+    /**
+     * Method to notify there was failure while retrieving facts
+     *
+     * @param conversationId - unique server interaction id
+     */
+    void onFailure(String conversationId);
 }

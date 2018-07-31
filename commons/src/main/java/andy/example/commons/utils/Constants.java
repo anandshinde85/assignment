@@ -6,13 +6,13 @@ package andy.example.commons.utils;
  * @author Anand Shinde
  */
 public class Constants {
-  private Constants() {
-    // private constructor to avoid creating object of this class
-  }
+    private Constants() {
+        // private constructor to avoid creating object of this class
+    }
 
-  // Base URL for all API
-  public static final String BASE_URL = "https://dl.dropboxusercontent.com/";
+    // Base URL for all API
+    public static final String BASE_URL = "https://dl.dropboxusercontent.com/";
 
-  // Get facts URL
-  public static final String URL_GET_FACTS = "s/2iodh4vg0eortkl/facts.json";
+    // Get facts URL
+    public static final String URL_GET_FACTS = "s/2iodh4vg0eortkl/facts.json";
 }

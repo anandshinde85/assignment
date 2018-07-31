@@ -1,23 +1,18 @@
 package andy.example.presenter;
 
-import org.junit.Test;
-import org.junit.Before;
-import org.junit.runner.RunWith;
-import org.mockito.ArgumentCaptor;
-import org.mockito.Captor;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
-import org.mockito.junit.MockitoJUnitRunner;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import andy.example.model.callbacks.FactsServiceCallback;
 import andy.example.model.entities.FactsResponse;
 import andy.example.model.entities.Row;
 import andy.example.model.service.FactsService;
 import andy.example.mvpviews.FactsContract;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.*;
+import org.mockito.junit.MockitoJUnitRunner;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -28,101 +23,101 @@ import andy.example.mvpviews.FactsContract;
 
 @RunWith(MockitoJUnitRunner.class)
 public class FactsPresenterTest {
-  @Mock
-  private FactsContract.View factsView;
+    @Mock
+    private FactsContract.View factsView;
 
-  @Mock
-  private FactsService factsService;
+    @Mock
+    private FactsService factsService;
 
-  /**
-   * @link ArgumentCaptor} is a powerful Mockito API to capture argument values and use them to
-   * perform further actions or assertions on them.
-   */
-  @Captor
-  private ArgumentCaptor<FactsServiceCallback> verifyCallback;
+    /**
+     * @link ArgumentCaptor} is a powerful Mockito API to capture argument values and use them to
+     * perform further actions or assertions on them.
+     */
+    @Captor
+    private ArgumentCaptor<FactsServiceCallback> verifyCallback;
 
-  private FactsPresenter factsPresenter;
+    private FactsPresenter factsPresenter;
 
-  @Before
-  public void setUp() {
-    MockitoAnnotations.initMocks(this);
+    @Before
+    public void setUp() {
+        MockitoAnnotations.initMocks(this);
 
-    // Initialising facts presenter
-    factsPresenter = new FactsPresenter(factsView, factsService);
-  }
+        // Initialising facts presenter
+        factsPresenter = new FactsPresenter(factsView, factsService);
+    }
 
-  /**
-   * Test case to be run successfully when API returns facts with some data
-   */
-  @Test
-  public void testSucceedToFetchFactsWithData() {
-    FactsResponse factsResponse = generateFactsWithData();
-    String conversationId = "";
+    /**
+     * Test case to be run successfully when API returns facts with some data
+     */
+    @Test
+    public void testSucceedToFetchFactsWithData() {
+        FactsResponse factsResponse = generateFactsWithData();
+        String conversationId = "";
 
-    factsPresenter.fetchFacts();
+        factsPresenter.fetchFacts();
 
-    // Facts view should call showLoading true method
-    Mockito.verify(factsView).showLoading(true);
+        // Facts view should call showLoading true method
+        Mockito.verify(factsView).showLoading(true);
 
-    // factsService then call get facts method which will be capture in callback
-    Mockito.verify(factsService).getFacts(verifyCallback.capture());
+        // factsService then call get facts method which will be capture in callback
+        Mockito.verify(factsService).getFacts(verifyCallback.capture());
 
-    // Mocking/ capturing onSuccess method on argument captor
-    verifyCallback.getValue().onSuccess(factsResponse, conversationId);
+        // Mocking/ capturing onSuccess method on argument captor
+        verifyCallback.getValue().onSuccess(factsResponse, conversationId);
 
-    // Verifying factsView calling onFactsSuccess method
-    Mockito.verify(factsView).onFactsSuccess(factsResponse);
-  }
+        // Verifying factsView calling onFactsSuccess method
+        Mockito.verify(factsView).onFactsSuccess(factsResponse);
+    }
 
-  /**
-   * Test case to be ran successfully when API return facts with no data
-   */
-  @Test
-  public void testSucceedToFetchFactsWithNoData() {
-    // Facts response with title and rows == null
-    FactsResponse factsResponse = new FactsResponse();
-    String conversationId = "";
+    /**
+     * Test case to be ran successfully when API return facts with no data
+     */
+    @Test
+    public void testSucceedToFetchFactsWithNoData() {
+        // Facts response with title and rows == null
+        FactsResponse factsResponse = new FactsResponse();
+        String conversationId = "";
 
-    factsPresenter.fetchFacts();
-    Mockito.verify(factsView).showLoading(true);
-    Mockito.verify(factsService).getFacts(verifyCallback.capture());
+        factsPresenter.fetchFacts();
+        Mockito.verify(factsView).showLoading(true);
+        Mockito.verify(factsService).getFacts(verifyCallback.capture());
 
-    // This will return facts response with rows == null
-    verifyCallback.getValue().onSuccess(factsResponse, conversationId);
+        // This will return facts response with rows == null
+        verifyCallback.getValue().onSuccess(factsResponse, conversationId);
 
-    // Verify since rows are null factsPresenter calls factsView's showEmptyError
-    Mockito.verify(factsView).showEmptyError();
-  }
+        // Verify since rows are null factsPresenter calls factsView's showEmptyError
+        Mockito.verify(factsView).showEmptyError();
+    }
 
-  /**
-   * Test case to be run successfully when fetching facts from server fails
-   */
-  @Test
-  public void testFailedToFetchFacts() {
-    String conversationId = "";
+    /**
+     * Test case to be run successfully when fetching facts from server fails
+     */
+    @Test
+    public void testFailedToFetchFacts() {
+        String conversationId = "";
 
-    factsPresenter.fetchFacts();
-    Mockito.verify(factsView).showLoading(true);
-    Mockito.verify(factsService).getFacts(verifyCallback.capture());
+        factsPresenter.fetchFacts();
+        Mockito.verify(factsView).showLoading(true);
+        Mockito.verify(factsService).getFacts(verifyCallback.capture());
 
-    // Mocking/capturing onFailure method on argument captor
-    verifyCallback.getValue().onFailure(conversationId);
+        // Mocking/capturing onFailure method on argument captor
+        verifyCallback.getValue().onFailure(conversationId);
 
-    // Verify facts view call onFactsFailure method
-    Mockito.verify(factsView).onFactsFailure();
-  }
+        // Verify facts view call onFactsFailure method
+        Mockito.verify(factsView).onFactsFailure();
+    }
 
-  /**
-   * Method to generate and return facts
-   *
-   * @return - factsResponse
-   */
-  private FactsResponse generateFactsWithData() {
-    FactsResponse factsResponse = new FactsResponse();
-    factsResponse.setTitle("Some Title");
-    List<Row> rows = new ArrayList<>();
-    rows.add(new Row());
-    factsResponse.setRows(rows);
-    return factsResponse;
-  }
+    /**
+     * Method to generate and return facts
+     *
+     * @return - factsResponse
+     */
+    private FactsResponse generateFactsWithData() {
+        FactsResponse factsResponse = new FactsResponse();
+        factsResponse.setTitle("Some Title");
+        List<Row> rows = new ArrayList<>();
+        rows.add(new Row());
+        factsResponse.setRows(rows);
+        return factsResponse;
+    }
 }

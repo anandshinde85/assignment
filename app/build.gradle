@@ -1,41 +1,41 @@
 apply plugin: 'com.android.application'
 
 android {
-  compileSdkVersion 27
-  defaultConfig {
-    applicationId "andy.example.wiproassignment"
-    minSdkVersion 25
-    targetSdkVersion 27
-    versionCode 1
-    versionName "1.0"
-    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-  }
-  buildTypes {
-    release {
-      minifyEnabled false
-      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "andy.example.wiproassignment"
+        minSdkVersion 25
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
-  }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
 }
 
 dependencies {
-  implementation fileTree(include: ['*.jar'], dir: 'libs')
-  implementation files('libs/awaitility-3.1.1.jar')
-  implementation project(':commons')
-  implementation project(':model')
-  implementation project(':presenter')
-  implementation supportDependencies.appCompat
-  implementation supportDependencies.support
-  implementation supportDependencies.recyclerView
-  implementation supportDependencies.cardView
-  implementation supportDependencies.constraintLayout
-  implementation supportDependencies.picasso
-  implementation supportDependencies.picassoDownloader
-  implementation supportDependencies.okHttpDownloader
-  implementation supportDependencies.retrofit
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation files('libs/awaitility-3.1.1.jar')
+    implementation project(':commons')
+    implementation project(':model')
+    implementation project(':presenter')
+    implementation supportDependencies.appCompat
+    implementation supportDependencies.support
+    implementation supportDependencies.recyclerView
+    implementation supportDependencies.cardView
+    implementation supportDependencies.constraintLayout
+    implementation supportDependencies.picasso
+    implementation supportDependencies.picassoDownloader
+    implementation supportDependencies.okHttpDownloader
+    implementation supportDependencies.retrofit
 
-  testImplementation supportDependencies.jUnit
-  androidTestImplementation supportDependencies.testRunner
-  androidTestImplementation supportDependencies.testRules
-  androidTestImplementation supportDependencies.espresso
+    testImplementation supportDependencies.jUnit
+    androidTestImplementation supportDependencies.testRunner
+    androidTestImplementation supportDependencies.testRules
+    androidTestImplementation supportDependencies.espresso
 }

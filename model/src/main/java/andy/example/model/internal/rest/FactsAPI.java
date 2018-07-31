@@ -11,11 +11,11 @@ import retrofit2.http.GET;
  * @author Anand Shinde
  */
 public interface FactsAPI {
-  /**
-   * Method to retrieve facts from FactsAPI
-   *
-   * @return - Facts response
-   */
-  @GET(Constants.URL_GET_FACTS)
-  Call<FactsResponse> getFacts();
+    /**
+     * Method to retrieve facts from FactsAPI
+     *
+     * @return - Facts response
+     */
+    @GET(Constants.URL_GET_FACTS)
+    Call<FactsResponse> getFacts();
 }

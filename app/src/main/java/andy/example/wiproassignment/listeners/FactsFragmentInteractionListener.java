@@ -6,10 +6,10 @@ package andy.example.wiproassignment.listeners;
  * @author Anand Shinde
  */
 public interface FactsFragmentInteractionListener {
-  /**
-   * Method to update toolbar title.
-   *
-   * @param title - updated title to be set
-   */
-  void updateToolbarTitle(String title);
+    /**
+     * Method to update toolbar title.
+     *
+     * @param title - updated title to be set
+     */
+    void updateToolbarTitle(String title);
 }

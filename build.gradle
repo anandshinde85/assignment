@@ -2,64 +2,64 @@
 
 buildscript {
 
-  repositories {
-    google()
-    jcenter()
-  }
-  dependencies {
-    classpath 'com.android.tools.build:gradle:3.3.0-alpha03'
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.3.0-alpha03'
 
-    // NOTE: Do not place your application dependencies here; they belong
-    // in the individual module build.gradle files
-  }
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
 }
 
 allprojects {
-  repositories {
-    google()
-    jcenter()
-  }
+    repositories {
+        google()
+        jcenter()
+    }
 }
 
 ext {
 
-  //Version
-  supportLibrary = '27.1.1'
-  retrofit = '2.4.0'
-  okHttp = '3.11.0'
-  jUnit = '4.12'
-  testRunner = '1.0.2'
-  espresso = '3.0.2'
-  constraintLayout = '1.1.2'
-  picasso = '2.5.2'
-  picassoDownloader = '1.1.0'
-  mockito = '2.20.1'
+    //Version
+    supportLibrary = '27.1.1'
+    retrofit = '2.4.0'
+    okHttp = '3.11.0'
+    jUnit = '4.12'
+    testRunner = '1.0.2'
+    espresso = '3.0.2'
+    constraintLayout = '1.1.2'
+    picasso = '2.5.2'
+    picassoDownloader = '1.1.0'
+    mockito = '2.20.1'
 
-  //Support Libraries dependencies
-  supportDependencies = [
-      appCompat        : "com.android.support:appcompat-v7:${supportLibrary}",
-      design           : "com.android.support:design:${supportLibrary}",
-      support          : "com.android.support:support-v4:${supportLibrary}",
-      recyclerView     : "com.android.support:recyclerview-v7:${supportLibrary}",
-      cardView         : "com.android.support:cardview-v7:${supportLibrary}",
-      constraintLayout : "com.android.support.constraint:constraint-layout:${constraintLayout}",
+    //Support Libraries dependencies
+    supportDependencies = [
+            appCompat        : "com.android.support:appcompat-v7:${supportLibrary}",
+            design           : "com.android.support:design:${supportLibrary}",
+            support          : "com.android.support:support-v4:${supportLibrary}",
+            recyclerView     : "com.android.support:recyclerview-v7:${supportLibrary}",
+            cardView         : "com.android.support:cardview-v7:${supportLibrary}",
+            constraintLayout : "com.android.support.constraint:constraint-layout:${constraintLayout}",
 
-      retrofit         : "com.squareup.retrofit2:retrofit:${retrofit}",
-      okHttpLogger     : "com.squareup.okhttp3:logging-interceptor:${okHttp}",
-      okHttpDownloader : "com.squareup.okhttp3:okhttp:${okHttp}",
-      gson             : "com.squareup.retrofit2:converter-gson:${retrofit}",
-      picasso          : "com.squareup.picasso:picasso:${picasso}",
-      picassoDownloader: "com.jakewharton" +
-          ".picasso:picasso2-okhttp3-downloader:${picassoDownloader}",
+            retrofit         : "com.squareup.retrofit2:retrofit:${retrofit}",
+            okHttpLogger     : "com.squareup.okhttp3:logging-interceptor:${okHttp}",
+            okHttpDownloader : "com.squareup.okhttp3:okhttp:${okHttp}",
+            gson             : "com.squareup.retrofit2:converter-gson:${retrofit}",
+            picasso          : "com.squareup.picasso:picasso:${picasso}",
+            picassoDownloader: "com.jakewharton" +
+                    ".picasso:picasso2-okhttp3-downloader:${picassoDownloader}",
 
-      jUnit            : "junit:junit:${jUnit}",
-      testRunner       : "com.android.support.test:runner:${testRunner}",
-      testRules        : "com.android.support.test:rules:${testRunner}",
-      espresso         : "com.android.support.test.espresso:espresso-core:${espresso}",
-      mockito          : "org.mockito:mockito-core:${mockito}"
-  ]
+            jUnit            : "junit:junit:${jUnit}",
+            testRunner       : "com.android.support.test:runner:${testRunner}",
+            testRules        : "com.android.support.test:rules:${testRunner}",
+            espresso         : "com.android.support.test.espresso:espresso-core:${espresso}",
+            mockito          : "org.mockito:mockito-core:${mockito}"
+    ]
 }
 
 task clean(type: Delete) {
-  delete rootProject.buildDir
+    delete rootProject.buildDir
 }
