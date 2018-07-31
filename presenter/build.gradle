@@ -28,5 +28,6 @@ dependencies {
   implementation fileTree(include: ['*.jar'], dir: 'libs')
   implementation project(':commons')
   implementation project(':model')
+  testImplementation supportDependencies.jUnit
   testImplementation supportDependencies.mockito
 }
