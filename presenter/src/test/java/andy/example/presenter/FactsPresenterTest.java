@@ -47,11 +47,12 @@ public class FactsPresenterTest {
   public void setUp() {
     MockitoAnnotations.initMocks(this);
 
+    // Initialising facts presenter
     factsPresenter = new FactsPresenter(factsView, factsService);
   }
 
   /**
-   * Test case to be tested when API returns facts with some data
+   * Test case to be run successfully when API returns facts with some data
    */
   @Test
   public void testSucceedToFetchFactsWithData() {
@@ -91,6 +92,24 @@ public class FactsPresenterTest {
 
     // Verify since rows are null factsPresenter calls factsView's showEmptyError
     Mockito.verify(factsView).showEmptyError();
+  }
+
+  /**
+   * Test case to be run successfully when fetching facts from server fails
+   */
+  @Test
+  public void testFailedToFetchFacts() {
+    String conversationId = "";
+
+    factsPresenter.fetchFacts();
+    Mockito.verify(factsView).showLoading(true);
+    Mockito.verify(factsService).getFacts(verifyCallback.capture());
+
+    // Mocking/capturing onFailure method on argument captor
+    verifyCallback.getValue().onFailure(conversationId);
+
+    // Verify facts view call onFactsFailure method
+    Mockito.verify(factsView).onFactsFailure();
   }
 
   /**
