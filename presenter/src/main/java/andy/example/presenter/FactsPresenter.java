@@ -24,6 +24,17 @@ public class FactsPresenter implements BasePresenter, FactsContract.UserActionLi
   }
 
   /**
+   * STRICTLY USED WHILE CONSTRUCTING TEST CASE OBJECT
+   *
+   * @param factsView - mocked facts view
+   * @param factsView - mocked facts view
+   */
+  public FactsPresenter(FactsContract.View factsView, FactsService factsService) {
+    this.factsView = factsView;
+    this.factsService = factsService;
+  }
+
+  /**
    * To be called in onStart method of activity/fragment
    */
   @Override
@@ -78,12 +89,7 @@ public class FactsPresenter implements BasePresenter, FactsContract.UserActionLi
   @Override
   public void fetchFacts() {
     if (null != factsView) {
-      if (factsView.isConnectedToNetwork()) {
-        factsView.showLoading(true);
-      } else {
-        factsView.showNetworkUnavailableError();
-        return;
-      }
+      factsView.showLoading(true);
     }
     factsService.getFacts(this);
   }
