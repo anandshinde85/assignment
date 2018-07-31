@@ -29,19 +29,19 @@ import andy.example.mvpviews.FactsContract;
 @RunWith(MockitoJUnitRunner.class)
 public class FactsPresenterTest {
   @Mock
-  FactsContract.View factsView;
+  private FactsContract.View factsView;
 
   @Mock
-  FactsService factsService;
+  private FactsService factsService;
 
   /**
    * @link ArgumentCaptor} is a powerful Mockito API to capture argument values and use them to
    * perform further actions or assertions on them.
    */
   @Captor
-  ArgumentCaptor<FactsServiceCallback> verifyCallback;
+  private ArgumentCaptor<FactsServiceCallback> verifyCallback;
 
-  FactsPresenter factsPresenter;
+  private FactsPresenter factsPresenter;
 
   @Before
   public void setUp() {
