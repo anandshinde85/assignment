@@ -40,31 +40,22 @@ public class FactsAdapter extends RecyclerView.Adapter<FactsViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull FactsViewHolder holder, int position) {
         Row row = rowList.get(position);
-        if (null == row) {
-            holder.getTvTitle().setText(context.getString(R.string.unavailable));
-            holder.getTvDescription().setText(context.getString(R.string.unavailable));
-            Picasso.with(context)
-                    .load(R.drawable.ic_place_holder)
-                    .into(holder.getIvFact());
-        } else {
-            String rowTitle = row.getTitle();
-            String title =
-                    TextUtils.isEmpty(rowTitle) ? context.getString(R.string.unavailable) : rowTitle;
-            holder.getTvTitle().setText(title);
+        String rowTitle = row.getTitle();
+        String rowDescription = row.getDescription();
+        String imageLink = row.getImageHref();
+        String title =
+                TextUtils.isEmpty(rowTitle) ? context.getString(R.string.unavailable) : rowTitle;
+        holder.getTvTitle().setText(title);
 
-            String rowDescription = row.getDescription();
-            String description =
-                    TextUtils.isEmpty(rowDescription) ? context.getString(R.string.unavailable) :
-                            rowDescription;
-            holder.getTvDescription().setText(description);
+        String description =
+                TextUtils.isEmpty(rowDescription) ? context.getString(R.string.unavailable) :
+                        rowDescription;
+        holder.getTvDescription().setText(description);
 
-            String imageLink = row.getImageHref();
-            Picasso.with(context)
-                    .load(imageLink)
-                    .placeholder(R.drawable.ic_place_holder)
-                    .error(R.drawable.ic_place_holder_error)
-                    .into(holder.getIvFact());
-        }
+        Picasso.with(context)
+                .load(imageLink)
+                .placeholder(R.drawable.ic_place_holder)
+                .into(holder.getIvFact());
     }
 
     /**
